@@ -7,36 +7,40 @@
 
   <!-- Primary Meta Tags -->
   <!-- TODO: Replace with your paper title and author names -->
-  <meta name="title" content="PAPER_TITLE - AUTHOR_NAMES">
+  <meta name="title"
+    content="Guarded Query Routing for Large Language Models - Richard Šléher, William Brach, Tibor Sloboda, Kristian Koštál, Lukas Galke">
   <!-- TODO: Write a compelling 150-160 character description of your research -->
-  <meta name="description" content="BRIEF_DESCRIPTION_OF_YOUR_RESEARCH_CONTRIBUTION_AND_FINDINGS">
+  <meta name="description"
+    content="This paper presents a novel benchmark for query routing in large language models dealing with ID and OOD queries.">
   <!-- TODO: Add 5-10 relevant keywords for your research area -->
-  <meta name="keywords" content="KEYWORD1, KEYWORD2, KEYWORD3, machine learning, computer vision, AI">
+  <meta name="keywords"
+    content="nlp, large language models, guard query routing, machine learning, text classification, AI">
   <!-- TODO: List all authors -->
-  <meta name="author" content="FIRST_AUTHOR_NAME, SECOND_AUTHOR_NAME">
+  <meta name="author" content="Richard Šléher, William Brach, Tibor Sloboda, Kristian Koštál, Lukas Galke">
   <meta name="robots" content="index, follow">
   <meta name="language" content="English">
 
   <!-- Open Graph / Facebook -->
   <meta property="og:type" content="article">
   <!-- TODO: Replace with your institution or lab name -->
-  <meta property="og:site_name" content="INSTITUTION_OR_LAB_NAME">
+  <meta property="og:site_name" content="GQR Bench">
   <!-- TODO: Same as paper title above -->
-  <meta property="og:title" content="PAPER_TITLE">
+  <meta property="og:title" content="Guarded Query Routing for Large Language Models">
   <!-- TODO: Same as description above -->
-  <meta property="og:description" content="BRIEF_DESCRIPTION_OF_YOUR_RESEARCH_CONTRIBUTION_AND_FINDINGS">
+  <meta property="og:description"
+    content="This paper presents a novel benchmark for query routing in large language models dealing with ID and OOD queries.">
   <!-- TODO: Replace with your actual website URL -->
-  <meta property="og:url" content="https://YOUR_DOMAIN.com/YOUR_PROJECT_PAGE">
+  <meta property="og:url" content="https://github.com/williambrach/gqr">
   <!-- TODO: Create a 1200x630px preview image and update path -->
   <meta property="og:image" content="https://YOUR_DOMAIN.com/static/images/social_preview.png">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
-  <meta property="og:image:alt" content="PAPER_TITLE - Research Preview">
-  <meta property="article:published_time" content="2024-01-01T00:00:00.000Z">
-  <meta property="article:author" content="FIRST_AUTHOR_NAME">
+  <meta property="og:image:alt" content="Guarded Query Routing for Large Language Models - Research Preview">
+  <meta property="article:published_time" content="2025-10-24T00:00:00.000Z">
+  <meta property="article:author" content="Richard Šléher">
   <meta property="article:section" content="Research">
-  <meta property="article:tag" content="KEYWORD1">
-  <meta property="article:tag" content="KEYWORD2">
+  <meta property="article:tag" content="nlp">
+  <meta property="article:tag" content="large language models">
 
   <!-- Twitter -->
   <meta name="twitter:card" content="summary_large_image">
@@ -75,7 +79,7 @@
 
 
   <!-- TODO: Replace with your paper title and authors -->
-  <title>PAPER_TITLE - AUTHOR_NAMES | Academic Research</title>
+  <title>GQR Bench</title>
 
   <!-- Favicon and App Icons -->
   <link rel="icon" type="image/x-icon" href="static/images/favicon.ico">
@@ -112,6 +116,7 @@
   <script defer src="static/js/bulma-carousel.min.js"></script>
   <script defer src="static/js/bulma-slider.min.js"></script>
   <script defer src="static/js/index.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js" async></script>
 
   <!-- Structured Data for Academic Papers -->
   <script type="application/ld+json">
@@ -206,10 +211,12 @@
                 <span class="author-block">
                   <a href="https://github.com/williambrach" target="_blank">William Brach</a><sup>*</sup>,</span>
                 <span class="author-block">
-                  <a href="https://scholar.google.com/citations?user=EVekvj8AAAAJ&hl=en" target="_blank">Tibor Sloboda</a>
+                  <a href="https://scholar.google.com/citations?user=EVekvj8AAAAJ&hl=en" target="_blank">Tibor
+                    Sloboda</a>
                 </span>
                 <span class="author-block">
-                  <a href="https://www.linkedin.com/in/kristi%C3%A1n-ko%C5%A1%C5%A5%C3%A1l-9599a82b5/" target="_blank">Kristián Košťál</a>
+                  <a href="https://www.linkedin.com/in/kristi%C3%A1n-ko%C5%A1%C5%A5%C3%A1l-9599a82b5/"
+                    target="_blank">Kristián Košťál</a>
                 </span>
                 </span>
                 <span class="author-block">
@@ -219,7 +226,8 @@
 
               <div class="is-size-5 publication-authors">
                 <!-- TODO: Replace with your institution and conference/journal info -->
-                <span class="author-block">Slovak Technical University<br>University of Southern Denmark<br>ECAI-2025, 28th European Conference on Artificial Intelligence</span>
+                <span class="author-block">Slovak Technical University<br>University of Southern Denmark<br>ECAI-2025,
+                  28th European Conference on Artificial Intelligence</span>
                 <!-- TODO: Remove this line if no equal contribution -->
                 <span class="eql-cntrb"><small><br><sup>*</sup>Indicates Equal Contribution</small></span>
               </div>
@@ -278,146 +286,562 @@
     </section>
 
 
+    <section class="section"></section>
+    <div class="container" style="margin-bottom: 2vh;">
+      <!-- Abstract. -->
+      <div class="columns is-centered has-text-centered">
+        <div class="column is-four-fifths">
+          <h2 class="title is-3">tldr</h2>
+          <div class="content has-text-justified">
+            <img src="static/images/figure_4.png" alt="Figure 4" width="100%">
+            <p>
+              Efficiency-effectiveness tradeoff showing GQR-score performance versus latency in seconds (log
+              scale). Models in the upper-left quadrant offer an optimal balance between high performance and low
+              latency.
+            </p>
+            <br>
+          </div>
+        </div>
+      </div>
+    </div>
+    </div>
+    </div>
+    </section>
 
 
-    <!-- Paper abstract -->
+
+
     <section class="section hero is-light">
       <div class="container is-max-desktop">
         <div class="columns is-centered has-text-centered">
           <div class="column is-four-fifths">
-            <h2 class="title is-3">Abstract</h2>
+            <h2 class="title is-3">Why is GQR important?</h2>
             <div class="content has-text-justified">
-              <!-- TODO: Replace with your paper abstract -->
               <p>
-Query routing, the task to route user queries to different large language model (LLM) endpoints, can be considered as a text classification problem. However, out-of-distribution queries must be handled properly, as those could be about unrelated domains, queries in other languages, or even contain unsafe text. Here, we thus study a guarded query routing problem, for which we first introduce the Guarded Query Routing Benchmark (GQR-Bench, released as Python package gqr), covers three exemplary target domains (law, finance, and healthcare), and seven datasets to test robustness against out-of-distribution queries. 
-We then use GQR-Bench to contrast the effectiveness and efficiency of LLM-based routing mechanisms (GPT-4o-mini, Llama-3.2-3B, and Llama-3.1-8B), standard LLM-based guardrail approaches (LlamaGuard and NVIDIA NeMo Guardrails), continuous bag-of-words classifiers (WideMLP, fastText), and traditional machine learning models (SVM, XGBoost). 
-Our results show that WideMLP, enhanced with out-of-domain detection capabilities, yields the best trade-off between accuracy (88%) and speed (<4ms). The embedding-based fastText excels at speed (<1ms) with acceptable accuracy (80%), whereas LLMs yield the highest accuracy (91%) but are comparatively slow (62ms for local Llama-3.1:8B and 669ms for remote GPT-4o-mini calls). Our findings challenge the automatic reliance on LLMs for (guarded) query routing and provide concrete recommendations for practical applications.
+                Guarded Query Routing (GQR) is crucial because modern systems increasingly use multiple specialized
+                Large Language Models (LLMs) to handle user requests efficiently. While standard query routing directs a
+                user's question to the correct expert model (e.g., a query about contracts to a legal model), it often
+                fails to account for unexpected or inappropriate inputs. GQR addresses this gap by acting as a
+                safeguard. It not only routes valid, in-domain queries to the appropriate specialized agent but also
+                identifies and rejects "out-of-distribution" queries. These can include questions about completely
+                unrelated topics, requests in different languages, or even unsafe and malicious inputs. By filtering
+                these queries, GQR ensures that computational resources are not wasted, prevents models from providing
+                incorrect or nonsensical answers, and protects the overall integrity and safety of the system.
               </p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-    <!-- End paper abstract -->
 
-
-    <!-- Image carousel -->
-    <section class="hero is-small">
-      <div class="hero-body">
-        <div class="container">
-          <div id="results-carousel" class="carousel results-carousel">
-            <div class="item">
-              <!-- TODO: Replace with your research result images -->
-              <img src="static/images/carousel1.jpg" alt="First research result visualization" loading="lazy" />
-              <!-- TODO: Replace with description of this result -->
-              <h2 class="subtitle has-text-centered">
-                First image description.
-              </h2>
-            </div>
-            <div class="item">
-              <!-- Your image here -->
-              <img src="static/images/carousel2.jpg" alt="Second research result visualization" loading="lazy" />
-              <h2 class="subtitle has-text-centered">
-                Second image description.
-              </h2>
-            </div>
-            <div class="item">
-              <!-- Your image here -->
-              <img src="static/images/carousel3.jpg" alt="Third research result visualization" loading="lazy" />
-              <h2 class="subtitle has-text-centered">
-                Third image description.
-              </h2>
-            </div>
-            <div class="item">
-              <!-- Your image here -->
-              <img src="static/images/carousel4.jpg" alt="Fourth research result visualization" loading="lazy" />
-              <h2 class="subtitle has-text-centered">
-                Fourth image description.
-              </h2>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-    <!-- End image carousel -->
-
-
-
-
-    <!-- Youtube video -->
-    <section class="hero is-small is-light">
-      <div class="hero-body">
-        <div class="container">
-          <!-- Paper video. -->
-          <h2 class="title is-3">Video Presentation</h2>
-          <div class="columns is-centered has-text-centered">
-            <div class="column is-four-fifths">
-
-              <div class="publication-video">
-                <!-- TODO: Replace with your YouTube video ID -->
-                <iframe src="https://www.youtube.com/embed/JkaxUblCGz0" frameborder="0"
-                  allow="autoplay; encrypted-media" allowfullscreen></iframe>
+              <div class="content has-text-justified">
+                <img src="static/images/figure_1.png" alt="Figure 1" loading="lazy" />
+                <p>
+                  A guarded query routing system that efficiently filters out-of-domain (OOD) queries while directing
+                  valid in-domain (ID) queries to appropriate domain-specific LLMs.
+                </p>
+                <br>
               </div>
             </div>
           </div>
         </div>
       </div>
     </section>
-    <!-- End youtube video -->
 
+    <section class="section">
+      <div class="container">
+        <div class="columns is-centered m-6">
+          <div class="column is-full has-text-centered content">
+            <h2 class="title is-3" id="leaderboard">Leaderboard</h2>
+            <br>
+            <table id="gqr-table">
+              <caption>This table shows the performance of various models on in-distribution (ID) and
+                out-of-distribution (OOD) datasets, which include both unsafe and out-of-domain data. The table presents
+                OOD and ID accuracies for each dataset, along with three summary metrics: Unsafe Avg (the average
+                accuracy on the five unsafe content datasets), OOD Accuracy, and GQR Score. The best score in each
+                column is highlighted. While the manually prompted Llama3.2:3B model achieves the highest OOD accuracy,
+                the overall best model according to the GQR score is the manually prompted Llama3.1:8B, followed by the
+                manually prompted GPT-4o-mini and the WideMLP. Standard guardrail methods were not applicable to
+                classify in-domain queries, which is marked by `---'.</caption>
+              <thead>
+                <tr>
+                  <th class="sortable clickable" data-sort="string">Model</th>
+                  <th class="sortable clickable" data-sort="number">Jigsaw</th>
+                  <th class="sortable clickable" data-sort="number">OLID</th>
+                  <th class="sortable clickable" data-sort="number">HateXplain</th>
+                  <th class="sortable clickable" data-sort="number">dkhate</th>
+                  <th class="sortable clickable" data-sort="number">TUKE SK</th>
+                  <th class="sortable clickable" data-sort="number">Web Q</th>
+                  <th class="sortable clickable" data-sort="number">ML Q</th>
+                  <th class="sortable clickable" data-sort="number">Unsafe Avg.</th>
+                  <th class="sortable clickable" data-sort="number">ID Acc.</th>
+                  <th class="sortable clickable" data-sort="number">OOD Acc.</th>
+                  <th class="sortable clickable" data-sort="number">GQR score</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr class="group-header">
+                  <th colspan="12"><em>Standard guardrail methods</em></th>
+                </tr>
+                <tr class="open_source">
+                  <td>Llama-Guard-3-1B</td>
+                  <td>51.40</td>
+                  <td>61.40</td>
+                  <td>91.47</td>
+                  <td>12.77</td>
+                  <td>20.13</td>
+                  <td>2.31</td>
+                  <td>0.00</td>
+                  <td>47.43</td>
+                  <td>---</td>
+                  <td>34.21</td>
+                  <td>---</td>
+                </tr>
+                <tr class="open_source">
+                  <td>Llama-Guard-3-8B</td>
+                  <td>27.07</td>
+                  <td>24.77</td>
+                  <td>93.28</td>
+                  <td>5.17</td>
+                  <td>7.51</td>
+                  <td>0.10</td>
+                  <td>0.00</td>
+                  <td>31.56</td>
+                  <td>---</td>
+                  <td>22.56</td>
+                  <td>---</td>
+                </tr>
+                <tr class="proprietary">
+                  <td>NeMo Guardrails + Llama3.2:3B</td>
+                  <td>61.42</td>
+                  <td>59.65</td>
+                  <td>43.15</td>
+                  <td>61.09</td>
+                  <td>67.88</td>
+                  <td>1.67</td>
+                  <td>0.00</td>
+                  <td>58.64</td>
+                  <td>---</td>
+                  <td>58.64</td>
+                  <td>---</td>
+                </tr>
+                <tr class="proprietary">
+                  <td>NeMo Guardrails + Llama3.1:8B</td>
+                  <td>51.99</td>
+                  <td>36.40</td>
+                  <td>20.83</td>
+                  <td>10.33</td>
+                  <td>27.11</td>
+                  <td>0.00</td>
+                  <td>0.00</td>
+                  <td>29.33</td>
+                  <td>---</td>
+                  <td>29.33</td>
+                  <td>---</td>
+                </tr>
+                <tr class="proprietary">
+                  <td>NeMo Guardrails + GPT-4o-mini</td>
+                  <td>98.26</td>
+                  <td>94.19</td>
+                  <td>99.78</td>
+                  <td>91.49</td>
+                  <td>96.14</td>
+                  <td>57.19</td>
+                  <td>79.69</td>
+                  <td>95.97</td>
+                  <td>---</td>
+                  <td>95.97</td>
+                  <td>---</td>
+                </tr>
+                <tr class="group-header">
+                  <th colspan="12"><em>Embedding similarity approaches</em></th>
+                </tr>
+                <tr class="open_source">
+                  <td>all-MiniLM-L6-v2 + Semantic Router (s=5, t=0.5)</td>
+                  <td>22.96</td>
+                  <td>31.74</td>
+                  <td>36.71</td>
+                  <td>39.51</td>
+                  <td>20.33</td>
+                  <td>96.70</td>
+                  <td>30.25</td>
+                  <td>49.22</td>
+                  <td>90.00</td>
+                  <td>42.45</td>
+                  <td>57.69</td>
+                </tr>
+                <tr class="open_source">
+                  <td>bge-small-en-v1.5 + Semantic Router (s=5, t=0.5)</td>
+                  <td>15.15</td>
+                  <td>28.95</td>
+                  <td>32.67</td>
+                  <td>31.91</td>
+                  <td>12.41</td>
+                  <td>95.42</td>
+                  <td>31.25</td>
+                  <td>24.22</td>
+                  <td>90.70</td>
+                  <td>35.39</td>
+                  <td>50.91</td>
+                </tr>
+                <tr class="group-header">
+                  <th colspan="12"><em>Routing based on large language models</em></th>
+                </tr>
+                <tr class="open_source">
+                  <td>Llama3.2:3B</td>
+                  <td><b>99.69</b></td>
+                  <td><b>99.88</b></td>
+                  <td><b>99.98</b></td>
+                  <td><b>100.00</b></td>
+                  <td><b>100.00</b></td>
+                  <td>99.16</td>
+                  <td><b>100.00</b></td>
+                  <td><b>99.91</b></td>
+                  <td>26.37</td>
+                  <td><b>99.82</b></td>
+                  <td>41.72</td>
+                </tr>
+                <tr class="proprietary">
+                  <td>Llama3.1:8B</td>
+                  <td>94.43</td>
+                  <td>93.60</td>
+                  <td>97.99</td>
+                  <td>95.74</td>
+                  <td>97.60</td>
+                  <td>90.55</td>
+                  <td>46.09</td>
+                  <td>95.87</td>
+                  <td>95.66</td>
+                  <td>88.00</td>
+                  <td><b>91.67</b></td>
+                </tr>
+                <tr class="proprietary">
+                  <td>GPT-4o-mini</td>
+                  <td>94.71</td>
+                  <td>93.49</td>
+                  <td>98.10</td>
+                  <td>94.53</td>
+                  <td>98.02</td>
+                  <td>90.80</td>
+                  <td>45.31</td>
+                  <td>95.77</td>
+                  <td>95.70</td>
+                  <td>87.85</td>
+                  <td>91.61</td>
+                </tr>
+                <tr class="group-header">
+                  <th colspan="12"><em>Continuous bag-of-words classifiers</em></th>
+                </tr>
+                <tr class="open_source">
+                  <td>fastText</td>
+                  <td>74.46</td>
+                  <td>61.51</td>
+                  <td>54.46</td>
+                  <td>74.77</td>
+                  <td>83.11</td>
+                  <td>70.37</td>
+                  <td>63.28</td>
+                  <td>69.66</td>
+                  <td>95.80</td>
+                  <td>68.85</td>
+                  <td>80.12</td>
+                </tr>
+                <tr class="open_source">
+                  <td>WideMLP (t=0.99)</td>
+                  <td>93.83</td>
+                  <td>93.49</td>
+                  <td>91.00</td>
+                  <td>86.93</td>
+                  <td>80.60</td>
+                  <td>99.16</td>
+                  <td>93.75</td>
+                  <td>89.17</td>
+                  <td>84.49</td>
+                  <td>91.25</td>
+                  <td>87.74</td>
+                </tr>
+                <tr class="open_source">
+                  <td>WideMLP (t=0.90)</td>
+                  <td>87.87</td>
+                  <td>83.26</td>
+                  <td>77.56</td>
+                  <td>71.73</td>
+                  <td>56.93</td>
+                  <td>95.57</td>
+                  <td>89.84</td>
+                  <td>75.47</td>
+                  <td>90.91</td>
+                  <td>80.39</td>
+                  <td>85.33</td>
+                </tr>
+                <tr class="open_source">
+                  <td>WideMLP (t=0.75)</td>
+                  <td>84.04</td>
+                  <td>76.74</td>
+                  <td>70.48</td>
+                  <td>57.45</td>
+                  <td>47.34</td>
+                  <td>92.91</td>
+                  <td>84.38</td>
+                  <td>67.21</td>
+                  <td>93.67</td>
+                  <td>73.33</td>
+                  <td>82.26</td>
+                </tr>
+                <tr class="group-header">
+                  <th colspan="12"><em>Fine-tuned encoder-only language models</em></th>
+                </tr>
+                <tr class="open_source">
+                  <td>ModernBERT-base (t=0.99)</td>
+                  <td>27.10</td>
+                  <td>17.91</td>
+                  <td>18.06</td>
+                  <td>10.33</td>
+                  <td>2.50</td>
+                  <td>62.30</td>
+                  <td>0.00</td>
+                  <td>15.18</td>
+                  <td><b>99.94</b></td>
+                  <td>19.74</td>
+                  <td>32.97</td>
+                </tr>
+                <tr class="open_source">
+                  <td>BERT-base-multilingual-cased (t=0.99)</td>
+                  <td>20.91</td>
+                  <td>28.26</td>
+                  <td>25.44</td>
+                  <td>25.84</td>
+                  <td>30.87</td>
+                  <td>7.28</td>
+                  <td>0.00</td>
+                  <td>26.26</td>
+                  <td>99.90</td>
+                  <td>19.80</td>
+                  <td>33.05</td>
+                </tr>
+                <tr class="group-header">
+                  <th colspan="12"><em>Sentence embeddings + traditional classifiers</em></th>
+                </tr>
+                <tr class="open_source">
+                  <td>bge-small-en-v1.5 + SVM</td>
+                  <td>77.47</td>
+                  <td>75.00</td>
+                  <td>63.81</td>
+                  <td>61.40</td>
+                  <td>63.82</td>
+                  <td>59.69</td>
+                  <td>96.88</td>
+                  <td>68.30</td>
+                  <td>99.42</td>
+                  <td>71.15</td>
+                  <td>82.94</td>
+                </tr>
+                <tr class="open_source">
+                  <td>bge-small-en-v1.5 + XGBoost</td>
+                  <td>81.95</td>
+                  <td>68.26</td>
+                  <td>72.15</td>
+                  <td>47.72</td>
+                  <td>59.02</td>
+                  <td>58.81</td>
+                  <td>92.97</td>
+                  <td>65.82</td>
+                  <td>98.78</td>
+                  <td>68.70</td>
+                  <td>81.04</td>
+                </tr>
+                <tr class="open_source">
+                  <td>all-MiniLM-L6-v2 + SVM</td>
+                  <td>59.61</td>
+                  <td>71.74</td>
+                  <td>61.63</td>
+                  <td>37.99</td>
+                  <td>34.62</td>
+                  <td>81.89</td>
+                  <td>94.53</td>
+                  <td>53.12</td>
+                  <td>86.06</td>
+                  <td>63.14</td>
+                  <td>72.84</td>
+                </tr>
+                <tr class="open_source">
+                  <td>all-MiniLM-L6-v2 + XGBoost</td>
+                  <td>47.57</td>
+                  <td>77.44</td>
+                  <td>53.14</td>
+                  <td>57.45</td>
+                  <td>60.17</td>
+                  <td>95.47</td>
+                  <td>89.84</td>
+                  <td>59.15</td>
+                  <td>92.93</td>
+                  <td>68.73</td>
+                  <td>79.02</td>
+                </tr>
+                <tr class="open_source">
+                  <td>all-MiniLM-L12-v2 + MLP</td>
+                  <td>74.77</td>
+                  <td>80.47</td>
+                  <td>85.59</td>
+                  <td>56.23</td>
+                  <td>18.87</td>
+                  <td>68.45</td>
+                  <td>32.81</td>
+                  <td>63.19</td>
+                  <td>95.17</td>
+                  <td>59.60</td>
+                  <td>73.23</td>
+                </tr>
+                <tr class="open_source">
+                  <td>TF--IDF + SVM</td>
+                  <td>24.58</td>
+                  <td>26.16</td>
+                  <td>21.72</td>
+                  <td>75.38</td>
+                  <td>96.98</td>
+                  <td>54.87</td>
+                  <td>87.50</td>
+                  <td>48.96</td>
+                  <td>37.76</td>
+                  <td>55.31</td>
+                  <td>49.26</td>
+                </tr>
+                <tr class="open_source">
+                  <td>TF--IDF + XGBoost</td>
+                  <td>58.31</td>
+                  <td>67.44</td>
+                  <td>66.40</td>
+                  <td><b>100.00</b></td>
+                  <td>99.90</td>
+                  <td><b>99.36</b></td>
+                  <td><b>100.00</b></td>
+                  <td>78.41</td>
+                  <td>34.76</td>
+                  <td>84.49</td>
+                  <td>42.39</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      </div>
+      </div>
+    </section>
 
-    <!-- Video carousel -->
-    <section class="hero is-small">
-      <div class="hero-body">
-        <div class="container">
-          <h2 class="title is-3">Another Carousel</h2>
-          <div id="results-carousel" class="carousel results-carousel">
-            <div class="item item-video1">
-              <!-- TODO: Add poster image for better preview -->
-              <video poster="" id="video1" controls muted loop height="100%" preload="metadata">
-                <!-- Your video file here -->
-                <source src="static/videos/carousel1.mp4" type="video/mp4">
-              </video>
+    <section class="section">
+      <div class="container">
+        <div class="columns is-centered has-text-centered">
+          <div class="column is-four-fifths">
+            <h2 class="title is-3">Benchmark Composition</h2>
+            <div class="content has-text-justified">
+              <p>
+                GQR-Bench is composed of existing datasets to evaluate the guarded query routing
+                problem. The benchmark is split into in-distribution (ID) datasets for the target
+                domains and out-of-distribution (OOD) datasets for robustness testing.
+              </p>
+              <table id="gqr-bench-datasets">
+                <thead>
+                  <tr>
+                    <th>Dataset</th>
+                    <th>#train</th>
+                    <th>#valid</th>
+                    <th>#test</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr class="group-header">
+                    <th colspan="4"><em>Datasets for target domains (in-distribution)</em></th>
+                  </tr>
+                  <tr>
+                    <td>Law StackExchange Prompts</td>
+                    <td>9611</td>
+                    <td>2402</td>
+                    <td>2987</td>
+                  </tr>
+                  <tr>
+                    <td>Question-Answer Subject Finance Instruct</td>
+                    <td>9635</td>
+                    <td>2409</td>
+                    <td>2956</td>
+                  </tr>
+                  <tr>
+                    <td>Lavita ChatDoctor HealthCareMagic 100k</td>
+                    <td>9554</td>
+                    <td>2389</td>
+                    <td>3057</td>
+                  </tr>
+                  <tr class="group-header">
+                    <th colspan="4"><em>Datasets for out-of-distribution queries</em></th>
+                  </tr>
+                  <tr>
+                    <td>Jigsaw</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>3214</td>
+                  </tr>
+                  <tr>
+                    <td>OLID</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>860</td>
+                  </tr>
+                  <tr>
+                    <td>HateXplain</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>5935</td>
+                  </tr>
+                  <tr>
+                    <td>dk_hate</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>329</td>
+                  </tr>
+                  <tr>
+                    <td>HateSpeech Slovak</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>959</td>
+                  </tr>
+                  <tr>
+                    <td>Machine Learning</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>128</td>
+                  </tr>
+                  <tr>
+                    <td>Web Questions</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>2032</td>
+                  </tr>
+                </tbody>
+              </table>
             </div>
-            <div class="item item-video2">
-              <!-- TODO: Add poster image for better preview -->
-              <video poster="" id="video2" controls muted loop height="100%" preload="metadata">
-                <!-- Your video file here -->
-                <source src="static/videos/carousel2.mp4" type="video/mp4">
-              </video>
-            </div>
-            <div class="item item-video3">
-              <!-- TODO: Add poster image for better preview -->
-              <video poster="" id="video3" controls muted loop height="100%" preload="metadata">
-                <!-- Your video file here -->
-                <source src="static/videos/carousel3.mp4" type="video/mp4">
-              </video>
+          </div>
+        </div>
+
+        <div class="columns is-centered has-text-centered">
+          <div class="column is-four-fifths">
+            <h2 class="title is-3">GQR Score Explained</h2>
+            <div class="content has-text-justified">
+              <p>We adopt the harmonic mean as our primary evaluation metric to balance the model's performance on both
+                in-domain (ID) and out-of-distribution (OOD) classification tasks. The harmonic mean provides a
+                stringent measure of combined performance because it heavily penalizes imbalances between the two
+                accuracy scores. Unlike the arithmetic mean, which can mask poor performance in one category when the
+                other performs exceptionally well, the harmonic mean approaches zero if either component score
+                approaches zero. Mathematically, given ID accuracy Acc_ID and OOD accuracy
+                Acc_OOD, the harmonic mean H is calculated as:</p>
+              <div class="content is-centered">
+                <img src="static/images/figure_3.png" alt="Figure 3" loading="lazy" width="50%" />
+              </div>
+              <p>This harmonic mean resembles a joint score for ID and OOD performance, giving us a valuable signal of
+                the overall performance in guarded query routing, where a model must correctly route ID queries and
+                identify OOD queries. This ensures that the models must be able to tackle both classification tasks
+                simultaneously to attain a high GQR-Score. In practical settings, this balanced measure is critical
+                because failures in either dimension can affect the overall system's utility and user trust.
+              </p>
             </div>
           </div>
         </div>
       </div>
     </section>
-    <!-- End video carousel -->
-
-
-
-
-
-
-    <!-- Paper poster -->
-    <section class="hero is-small is-light">
-      <div class="hero-body">
-        <div class="container">
-          <h2 class="title">Poster</h2>
-
-          <!-- TODO: Replace with your poster PDF -->
-          <iframe src="static/pdfs/sample.pdf" width="100%" height="550">
-          </iframe>
-
-        </div>
-      </div>
-    </section>
-    <!--End paper poster -->
 
 
 
