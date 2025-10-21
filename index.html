@@ -32,7 +32,8 @@
   <!-- TODO: Replace with your actual website URL -->
   <meta property="og:url" content="https://github.com/williambrach/gqr">
   <!-- TODO: Create a 1200x630px preview image and update path -->
-  <meta property="og:image" content="https://YOUR_DOMAIN.com/static/images/social_preview.png">
+  <meta property="og:image"
+    content="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRV7lhrsv0LtPUBRv_MtHT3Q3u_EtJ6RRxWHQ&s">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
   <meta property="og:image:alt" content="Guarded Query Routing for Large Language Models - Research Preview">
@@ -45,24 +46,26 @@
   <!-- Twitter -->
   <meta name="twitter:card" content="summary_large_image">
   <!-- TODO: Replace with your lab/institution Twitter handle -->
-  <meta name="twitter:site" content="@YOUR_TWITTER_HANDLE">
+  <meta name="twitter:site" content="@williambrach">
   <!-- TODO: Replace with first author's Twitter handle -->
-  <meta name="twitter:creator" content="@AUTHOR_TWITTER_HANDLE">
+  <meta name="twitter:creator" content="@williambrach">
   <!-- TODO: Same as paper title above -->
-  <meta name="twitter:title" content="PAPER_TITLE">
+  <meta name="twitter:title" content="Guarded Query Routing for Large Language Models">
   <!-- TODO: Same as description above -->
-  <meta name="twitter:description" content="BRIEF_DESCRIPTION_OF_YOUR_RESEARCH_CONTRIBUTION_AND_FINDINGS">
+  <meta name="twitter:description"
+    content="This paper presents a novel benchmark for query routing in large language models dealing with ID and OOD queries.">
   <!-- TODO: Same as social preview image above -->
-  <meta name="twitter:image" content="https://YOUR_DOMAIN.com/static/images/social_preview.png">
-  <meta name="twitter:image:alt" content="PAPER_TITLE - Research Preview">
+  <meta name="twitter:image"
+    content="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRV7lhrsv0LtPUBRv_MtHT3Q3u_EtJ6RRxWHQ&s">
+  <meta name="twitter:image:alt" content="Guarded Query Routing for Large Language Models - Research Preview">
 
   <!-- Academic/Research Specific -->
-  <meta name="citation_title" content="PAPER_TITLE">
-  <meta name="citation_author" content="FIRST_AUTHOR_LAST, FIRST_AUTHOR_FIRST">
-  <meta name="citation_author" content="SECOND_AUTHOR_LAST, SECOND_AUTHOR_FIRST">
-  <meta name="citation_publication_date" content="2024">
-  <meta name="citation_conference_title" content="CONFERENCE_NAME">
-  <meta name="citation_pdf_url" content="https://YOUR_DOMAIN.com/static/pdfs/paper.pdf">
+  <meta name="citation_title" content="Guarded Query Routing for Large Language Models">
+  <meta name="citation_author" content="Šléher, Richard">
+  <meta name="citation_author" content="Brach, William">
+  <meta name="citation_publication_date" content="2025">
+  <meta name="citation_conference_title" content="ECAI 2025">
+  <meta name="citation_pdf_url" content="https://arxiv.org/pdf/2505.14524">
 
   <!-- Additional SEO -->
   <meta name="theme-color" content="#2563eb">
@@ -78,7 +81,6 @@
   <link rel="preconnect" href="https://cdn.jsdelivr.net">
 
 
-  <!-- TODO: Replace with your paper title and authors -->
   <title>GQR Bench</title>
 
   <!-- Favicon and App Icons -->
@@ -123,50 +125,59 @@
   {
     "@context": "https://schema.org",
     "@type": "ScholarlyArticle",
-    "headline": "PAPER_TITLE",
-    "description": "BRIEF_DESCRIPTION_OF_YOUR_RESEARCH_CONTRIBUTION_AND_FINDINGS",
+    "headline": "Guarded Query Routing for Large Language Models",
+    "description": "This paper presents a novel approach to guarded query routing in large language models, enhancing their ability to handle both in-distribution and out-of-distribution queries effectively.",
     "author": [
       {
         "@type": "Person",
-        "name": "FIRST_AUTHOR_NAME",
+        "name": "Richard Šléher",
         "affiliation": {
           "@type": "Organization",
-          "name": "INSTITUTION_NAME"
+          "name": "FIIT STU"
         }
       },
       {
         "@type": "Person",
-        "name": "SECOND_AUTHOR_NAME",
+        "name": "William Brach",
         "affiliation": {
           "@type": "Organization",
-          "name": "INSTITUTION_NAME"
+          "name": "FIIT STU"
         }
       }
     ],
-    "datePublished": "2024-01-01",
+    "datePublished": "2025-10-25",
     "publisher": {
       "@type": "Organization",
-      "name": "CONFERENCE_OR_JOURNAL_NAME"
+      "name": "ECAI 2025"
     },
-    "url": "https://YOUR_DOMAIN.com/YOUR_PROJECT_PAGE",
-    "image": "https://YOUR_DOMAIN.com/static/images/social_preview.png",
-    "keywords": ["KEYWORD1", "KEYWORD2", "KEYWORD3", "machine learning", "computer vision"],
-    "abstract": "FULL_ABSTRACT_TEXT_HERE",
-    "citation": "BIBTEX_CITATION_HERE",
+    "url": "https://github.com/williambrach/gqr",
+    "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRV7lhrsv0LtPUBRv_MtHT3Q3u_EtJ6RRxWHQ&s",
+    "keywords": ["LLM", "NLP", "Guard query", "machine learning", "GQR"],
+    "abstract": "Query routing, the task to route user queries to different large language model (LLM) endpoints, can be considered as a text classification problem. However, out-of-distribution queries must be handled properly, as those could be about unrelated domains, queries in other languages, or even contain unsafe text. Here, we thus study a \emph{guarded} query routing problem, for which we first introduce the Guarded Query Routing Benchmark (GQR-Bench, released as Python package gqr), covers three exemplary target domains (law, finance, and healthcare), and seven datasets to test robustness against out-of-distribution queries. 
+We then use GQR-Bench to contrast the effectiveness and efficiency of LLM-based routing mechanisms (GPT-4o-mini, Llama-3.2-3B, and Llama-3.1-8B), standard LLM-based guardrail approaches (LlamaGuard and NVIDIA NeMo Guardrails), continuous bag-of-words classifiers (WideMLP, fastText), and traditional machine learning models (SVM, XGBoost). 
+Our results show that WideMLP, enhanced with out-of-domain detection capabilities, yields the best trade-off between accuracy (88%) and speed (<4ms). The embedding-based fastText excels at speed (<1ms) with acceptable accuracy (80%), whereas LLMs yield the highest accuracy (91\%) but are comparatively slow (62ms for local Llama-3.1:8B and 669ms for remote GPT-4o-mini calls). Our findings challenge the automatic reliance on LLMs for (guarded) query routing and provide concrete recommendations for practical applications.",
+    "citation": "@misc{gqr-bench,
+      title={Guarded Query Routing for Large Language Models}, 
+      author={Richard Šléher and William Brach and Tibor Sloboda and Kristián Košťál and Lukas Galke},
+      year={2025},
+      eprint={2505.14524},
+      archivePrefix={arXiv},
+      primaryClass={cs.AI},
+      url={https://arxiv.org/abs/2505.14524}",
     "isAccessibleForFree": true,
     "license": "https://creativecommons.org/licenses/by/4.0/",
     "mainEntity": {
       "@type": "WebPage",
-      "@id": "https://YOUR_DOMAIN.com/YOUR_PROJECT_PAGE"
+      "@id": "https://gqr-bench.github.io/"
     },
     "about": [
       {
         "@type": "Thing",
-        "name": "RESEARCH_AREA_1"
+        "name": "LLMs"
       },
       {
         "@type": "Thing", 
-        "name": "RESEARCH_AREA_2"
+        "name": "NLP"
       }
     ]
   }
@@ -177,12 +188,11 @@
   {
     "@context": "https://schema.org",
     "@type": "Organization",
-    "name": "INSTITUTION_OR_LAB_NAME",
-    "url": "https://YOUR_INSTITUTION_WEBSITE.com",
-    "logo": "https://YOUR_DOMAIN.com/static/images/favicon.ico",
+    "name": "FIIT STU",
+    "url": "https://www.fiit.stuba.sk/",
+    "logo": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRV7lhrsv0LtPUBRv_MtHT3Q3u_EtJ6RRxWHQ&s",
     "sameAs": [
-      "https://twitter.com/YOUR_TWITTER_HANDLE",
-      "https://github.com/YOUR_GITHUB_USERNAME"
+      "https://github.com/fiit-ba"
     ]
   }
   </script>
@@ -207,7 +217,8 @@
               <div class="is-size-5 publication-authors">
                 <!-- TODO: Replace with your paper authors and their personal links -->
                 <span class="author-block">
-                  <a href="FIRST AUTHOR PERSONAL LINK" target="_blank">Richard Šléher</a><sup>*</sup>,</span>
+                  <a href="https://www.linkedin.com/in/richard-%C5%A1l%C3%A9her-37a4b4301/" target="_blank">Richard
+                    Šléher</a><sup>*</sup>,</span>
                 <span class="author-block">
                   <a href="https://github.com/williambrach" target="_blank">William Brach</a><sup>*</sup>,</span>
                 <span class="author-block">
@@ -291,13 +302,16 @@
       <!-- Abstract. -->
       <div class="columns is-centered has-text-centered">
         <div class="column is-four-fifths">
-          <h2 class="title is-3">tldr</h2>
+          <h2 class="title is-3">TLDR</h2>
           <div class="content has-text-justified">
             <img src="static/images/figure_4.png" alt="Figure 4" width="100%">
             <p>
-              Efficiency-effectiveness tradeoff showing GQR-score performance versus latency in seconds (log
-              scale). Models in the upper-left quadrant offer an optimal balance between high performance and low
-              latency.
+              GQR-bench measures how well a model can accurately route in-domain (ID) queries and reject
+              out-of-distribution (OOD) queries. Although large language models such as Llama3.1:8B and GPT-4o-mini
+              achieve the highest scores, they come with high latency. Conversely, models such as fastText and WideMLP
+              offer a much better balance, with latencies in the sub-millisecond range that are orders of magnitude
+              faster than LLMs. This benchmark challenges the reliance on computationally expensive LLMs, demonstrating
+              that efficient classifiers are a more practical solution for guarded query routing.
             </p>
             <br>
           </div>
@@ -318,23 +332,19 @@
             <h2 class="title is-3">Why is GQR important?</h2>
             <div class="content has-text-justified">
               <p>
-                Guarded Query Routing (GQR) is crucial because modern systems increasingly use multiple specialized
-                Large Language Models (LLMs) to handle user requests efficiently. While standard query routing directs a
-                user's question to the correct expert model (e.g., a query about contracts to a legal model), it often
-                fails to account for unexpected or inappropriate inputs. GQR addresses this gap by acting as a
-                safeguard. It not only routes valid, in-domain queries to the appropriate specialized agent but also
-                identifies and rejects "out-of-distribution" queries. These can include questions about completely
+                Guarded Query Routing (GQR) is important because modern systems increasingly use multiple Large Language
+                Models (LLMs) calls to efficiently handle user requests. Although standard query routing directs a
+                user's query to the relevant expert model (e.g. a query about contracts is directed to a legal model),
+                it often fails to account for unexpected or inappropriate inputs. GQR addresses this issue by acting as
+                a safeguard. Not only does it route valid, in-domain queries to the appropriate specialised "agent", it
+                also identifies and rejects 'out-of-distribution' queries. These can include questions about completely
                 unrelated topics, requests in different languages, or even unsafe and malicious inputs. By filtering
                 these queries, GQR ensures that computational resources are not wasted, prevents models from providing
-                incorrect or nonsensical answers, and protects the overall integrity and safety of the system.
+                incorrect or nonsensical answers and safeguards the system's overall integrity and safety.
               </p>
 
               <div class="content has-text-justified">
                 <img src="static/images/figure_1.png" alt="Figure 1" loading="lazy" />
-                <p>
-                  A guarded query routing system that efficiently filters out-of-domain (OOD) queries while directing
-                  valid in-domain (ID) queries to appropriate domain-specific LLMs.
-                </p>
                 <br>
               </div>
             </div>
@@ -349,15 +359,13 @@
           <div class="column is-full has-text-centered content">
             <h2 class="title is-3" id="leaderboard">Leaderboard</h2>
             <br>
+            <p>
+              This table shows how well different models perform on in-distribution (ID) and
+              out-of-distribution (OOD) datasets, which include both unsafe and out-of-domain data. The table presents
+              the ID and OOD accuracies for each dataset, alongside three summary metrics. Unsafe Avg (the average
+              accuracy across the five unsafe content datasets), OOD Accuracy and GQR Score.
+            </p>
             <table id="gqr-table">
-              <caption>This table shows the performance of various models on in-distribution (ID) and
-                out-of-distribution (OOD) datasets, which include both unsafe and out-of-domain data. The table presents
-                OOD and ID accuracies for each dataset, along with three summary metrics: Unsafe Avg (the average
-                accuracy on the five unsafe content datasets), OOD Accuracy, and GQR Score. The best score in each
-                column is highlighted. While the manually prompted Llama3.2:3B model achieves the highest OOD accuracy,
-                the overall best model according to the GQR score is the manually prompted Llama3.1:8B, followed by the
-                manually prompted GPT-4o-mini and the WideMLP. Standard guardrail methods were not applicable to
-                classify in-domain queries, which is marked by `---'.</caption>
               <thead>
                 <tr>
                   <th class="sortable clickable" data-sort="string">Model</th>
@@ -688,7 +696,7 @@
                   <td>73.23</td>
                 </tr>
                 <tr class="open_source">
-                  <td>TF--IDF + SVM</td>
+                  <td>TF-IDF + SVM</td>
                   <td>24.58</td>
                   <td>26.16</td>
                   <td>21.72</td>
@@ -702,7 +710,7 @@
                   <td>49.26</td>
                 </tr>
                 <tr class="open_source">
-                  <td>TF--IDF + XGBoost</td>
+                  <td>TF-IDF + XGBoost</td>
                   <td>58.31</td>
                   <td>67.44</td>
                   <td>66.40</td>
@@ -717,6 +725,8 @@
                 </tr>
               </tbody>
             </table>
+            <caption>Standard guardrail methods could not be used to classify in-domain queries, as indicated by '---'.
+            </caption>
           </div>
         </div>
       </div>
@@ -731,9 +741,9 @@
             <h2 class="title is-3">Benchmark Composition</h2>
             <div class="content has-text-justified">
               <p>
-                GQR-Bench is composed of existing datasets to evaluate the guarded query routing
-                problem. The benchmark is split into in-distribution (ID) datasets for the target
-                domains and out-of-distribution (OOD) datasets for robustness testing.
+                GQR-Bench comprises existing datasets for evaluating the guarded query routing problem. The benchmark
+                comprises in-distribution (ID) datasets for the target domains and out-of-distribution (OOD) datasets
+                for robustness testing.
               </p>
               <table id="gqr-bench-datasets">
                 <thead>
@@ -821,21 +831,19 @@
           <div class="column is-four-fifths">
             <h2 class="title is-3">GQR Score Explained</h2>
             <div class="content has-text-justified">
-              <p>We adopt the harmonic mean as our primary evaluation metric to balance the model's performance on both
-                in-domain (ID) and out-of-distribution (OOD) classification tasks. The harmonic mean provides a
-                stringent measure of combined performance because it heavily penalizes imbalances between the two
-                accuracy scores. Unlike the arithmetic mean, which can mask poor performance in one category when the
-                other performs exceptionally well, the harmonic mean approaches zero if either component score
-                approaches zero. Mathematically, given ID accuracy Acc_ID and OOD accuracy
-                Acc_OOD, the harmonic mean H is calculated as:</p>
+              <p>We use the harmonic mean as backbone of GQR-Score because it assess the model's performance on both
+                in-domain (ID) and out-of-distribution (OOD) classification tasks. The harmonic mean is a stringent
+                measure of combined performance because it heavily penalises imbalances between the two accuracy scores.
+                Mathematically, given ID accuracy AccID and OOD accuracy AccOOD, the harmonic mean H is calculated as
+                follows:</p>
               <div class="content is-centered">
                 <img src="static/images/figure_3.png" alt="Figure 3" loading="lazy" width="50%" />
               </div>
-              <p>This harmonic mean resembles a joint score for ID and OOD performance, giving us a valuable signal of
-                the overall performance in guarded query routing, where a model must correctly route ID queries and
-                identify OOD queries. This ensures that the models must be able to tackle both classification tasks
-                simultaneously to attain a high GQR-Score. In practical settings, this balanced measure is critical
-                because failures in either dimension can affect the overall system's utility and user trust.
+              <p>This harmonic mean acts as an overall performance indicator for ID and OOD queries, providing valuable
+                insight into guarded query routing, where models must correctly route ID queries and identify OOD
+                queries. This means that models must be able to tackle both classification tasks simultaneously to
+                attain a high GQR score. In practical settings, this balanced measure is important because errors in
+                either area can impact the system's overall utility and user confidence.
               </p>
             </div>
           </div>
